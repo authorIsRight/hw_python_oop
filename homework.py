@@ -120,9 +120,7 @@ class Swimming(Training):
 
 def main(training: Training) -> None:
     """Главная функция."""
-#    training.get_distance()
-#    training.get_mean_speed()
-#    training.get_spent_calories()
+
     info = training.show_training_info()
     print(info.get_message())
 
