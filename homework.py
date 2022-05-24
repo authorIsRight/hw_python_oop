@@ -1,8 +1,11 @@
 class InfoMessage:
     """Информационное сообщение о тренировке."""
     def __init__(
-            self, training_type, duration,
-            distance, speed, calories) -> None:
+            self, training_type: str,
+            duration: float,
+            distance: float,
+            speed: float,
+            calories: float) -> None:
         self.training_type = training_type
         self.duration = duration
         self.distance = distance
@@ -117,23 +120,25 @@ class Swimming(Training):
 
 def main(training: Training) -> None:
     """Главная функция."""
-    training.get_distance()
-    training.get_mean_speed()
-    training.get_spent_calories()
+#    training.get_distance()
+#    training.get_mean_speed()
+#    training.get_spent_calories()
     info = training.show_training_info()
     print(info.get_message())
 
 
-def read_package(workout_type: str, data: list) -> Training:
+def read_package(workout_type: str, data: list[str, float]) -> Training:
     """Прочитать данные полученные от датчиков."""
     tranings = {
         'SWM': Swimming,
         'RUN': Running,
         'WLK': SportsWalking}
-    if workout_type in tranings:
-        return tranings[workout_type](*data)
+    if workout_type not in tranings:
+        raise KeyError('foo bar')
     else:
-        print('Что-то пошло не так. Обратитесь к Создателю.')
+        return tranings[workout_type](*data)
+
+# ниже прекод, давайте не трогать :)
 
 
 if __name__ == '__main__':
