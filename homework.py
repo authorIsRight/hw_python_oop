@@ -1,3 +1,6 @@
+from typing import List
+
+
 class InfoMessage:
     """Информационное сообщение о тренировке."""
     def __init__(
@@ -127,7 +130,7 @@ def main(training: Training) -> None:
     print(info.get_message())
 
 
-def read_package(workout_type: str, data: list[str, float]) -> Training:
+def read_package(workout_type: str, data: List[float]) -> Training:
     """Прочитать данные полученные от датчиков."""
     tranings = {
         'SWM': Swimming,
