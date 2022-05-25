@@ -138,8 +138,7 @@ def read_package(workout_type: str, data: List[float]) -> Training:
         'WLK': SportsWalking}
     if workout_type not in tranings:
         raise KeyError('foo bar')
-    else:
-        return tranings[workout_type](*data)
+    return tranings[workout_type](*data)
 
 # ниже прекод, давайте не трогать :)
 
